@@ -1,34 +1,42 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import './App.css'
+import { useEffect, useState } from "react";
+import styled from "styled-components";
+import "./App.css";
+import { Header, Container, Footer, GameOver } from "./components";
 
 function App() {
-  const [count, setCount] = useState(0)
-
+  const [score, setScore] = useState(0);
+  const [bestScore, setBestScore] = useState(0);
+  const [lvl, setLvl] = useState(1);
+  const [gameOver, setGameOver] = useState(false);
   return (
-    <div className="App">
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src="/vite.svg" className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </div>
-  )
+    <StyledApp>
+      {console.log({ lvl: lvl })}
+      {gameOver && (
+        <GameOver
+          score={score}
+          setScore={setScore}
+          setLvl={setLvl}
+          setGameOver={setGameOver}
+        />
+      )}
+      <Header score={score} bestScore={bestScore} lvl={lvl} />
+      <Container
+        score={score}
+        setScore={setScore}
+        bestScore={bestScore}
+        setBestScore={setBestScore}
+        lvl={lvl}
+        setLvl={setLvl}
+        gameOver={gameOver}
+        setGameOver={setGameOver}
+      />
+      <Footer />
+    </StyledApp>
+  );
 }
 
-export default App
+export default App;
+
+const StyledApp = styled.div`
+  min-height: 100%;
+`;
