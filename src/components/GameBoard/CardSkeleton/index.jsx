@@ -1,23 +1,25 @@
 import React from "react";
-import Skeleton from "react-loading-skeleton";
+import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import styled from "styled-components";
 
 export function CardSkeleton() {
   return (
-    <StyledCard>
-      <Skeleton
-        width={150}
-        height={200}
-        borderRadius={5}
-        baseColor="transparent"
-      />
-      <CardEmo>
-        <Skeleton circle width={80} height={80} />
-      </CardEmo>
-      <CardInfo>
-        <Skeleton count={2} width={70} height={10} />
-      </CardInfo>
-    </StyledCard>
+    <SkeletonTheme baseColor="#202020" highlightColor="#444">
+      <StyledCard>
+        <Skeleton
+          circle
+          height={80}
+          width={80}
+          style={{ marginTop: "25px", marginBottom: "10px" }}
+        />
+        <Skeleton
+          width={100}
+          height={15}
+          count={2}
+          style={{ marginTop: "10px" }}
+        />
+      </StyledCard>
+    </SkeletonTheme>
   );
 }
 
@@ -30,25 +32,7 @@ const StyledCard = styled.div`
   width: 150px;
   height: 200px;
 
-  background-color: transparent;
-  border-color: #202020;
-  border-style: solid;
-  border-width: 5px;
   border-radius: 5px;
-`;
-
-const CardEmo = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  height: 80px;
-  width: 100px;
-  margin-bottom: 20px;
-`;
-const CardInfo = styled.div`
-  /*   display: flex;
-  padding: 0 10px 10px;
-  height: 20px;
-  width: 30px; */
+  background-color: transparent;
+  box-shadow: 1px 1px 10px 0px rgba(250, 250, 250, 0.837);
 `;
