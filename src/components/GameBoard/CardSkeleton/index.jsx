@@ -5,7 +5,12 @@ import styled from "styled-components";
 export function CardSkeleton() {
   return (
     <StyledCard>
- {/*      <Skeleton width={200} height={300} borderRadius={5} baseColor="#202020"/> */}
+      <Skeleton
+        width={150}
+        height={200}
+        borderRadius={5}
+        baseColor="transparent"
+      />
       <CardEmo>
         <Skeleton circle width={80} height={80} />
       </CardEmo>

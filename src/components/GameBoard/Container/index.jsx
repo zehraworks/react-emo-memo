@@ -2,27 +2,11 @@ import React from "react";
 import styled from "styled-components";
 import { Cards } from "../Cards";
 
-export function Container({
-  score,
-  setScore,
-  bestScore,
-  setBestScore,
-  lvl,
-  setLvl,
-  gameOver,
-  setGameOver,
-}) {
+export function Container() {
   return (
     <StyledContainer>
       <Cards
-        score={score}
-        setScore={setScore}
-        bestScore={bestScore}
-        setBestScore={setBestScore}
-        lvl={lvl}
-        setLvl={setLvl}
-        gameOver={gameOver}
-        setGameOver={setGameOver}
+       
       />
     </StyledContainer>
   );

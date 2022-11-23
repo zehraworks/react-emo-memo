@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
+import { GlobalContext } from "../../context/GlobalContext";
 import img from "./skull.png";
 
-export function GameOver({ score, setScore, setLvl, setGameOver }) {
+export function GameOver() {
+  const {score, setScore, setLvl, setGameOver} = useContext(GlobalContext)
   const startNewGame = () => {
     setScore(0);
     setLvl(1);

@@ -1,13 +1,15 @@
 import React from "react";
 import styled from "styled-components";
+
 import { LogoSection } from "./LogoSection";
 import { ScoreBoard } from "./ScoreBoard";
 
-export function Header({ score, bestScore, lvl }) {
+export function Header() {
+ 
   return (
     <HeaderStyle>
       <LogoSection />
-      <ScoreBoard score={score} bestScore={bestScore} lvl={lvl} />
+      <ScoreBoard />
     </HeaderStyle>
   );
 }

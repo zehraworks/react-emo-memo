@@ -1,26 +1,27 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useState, useEffect, useRef } from "react";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 import styled from "styled-components";
+import { GlobalContext } from "../../../context/GlobalContext";
 import { Card } from "../Card";
 import { CardSkeleton } from "../CardSkeleton";
 
-export function Cards({
-  score,
+export function Cards() {
+  const BASE_URL = "https://emoji-api.com/emojis";
+  const [data, setData] = useState([]);
+  const [cardsNum, setCardsNum] = useState(3);
+  const [isLoading, setIsLoading] = useState(true);
+  const ref = useRef([]);
+
+  const {  score,
   setScore,
   bestScore,
   setBestScore,
   lvl,
   setLvl,
   gameOver,
-  setGameOver,
-}) {
-  const BASE_URL = "https://emoji-api.com/emojis";
-  const [data, setData] = useState([]);
-  const [cardsNum, setCardsNum] = useState(3);
-  const [isLoading, setIsLoading] = useState(true);
-  const ref = useRef([]);
+  setGameOver,} = useContext(GlobalContext)
 
   useEffect(() => {
     async function fetchEmojis() {
