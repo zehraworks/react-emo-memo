@@ -5,7 +5,6 @@ import { LogoSection } from "./LogoSection";
 import { ScoreBoard } from "./ScoreBoard";
 
 export function Header() {
- 
   return (
     <HeaderStyle>
       <LogoSection />

@@ -4,7 +4,7 @@ import { GlobalContext } from "../../context/GlobalContext";
 import img from "./skull.png";
 
 export function GameOver() {
-  const {score, setScore, setLvl, setGameOver} = useContext(GlobalContext)
+  const { score, setScore, setLvl, setGameOver } = useContext(GlobalContext);
   const startNewGame = () => {
     setScore(0);
     setLvl(1);

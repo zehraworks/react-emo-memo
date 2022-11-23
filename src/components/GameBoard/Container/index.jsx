@@ -5,9 +5,7 @@ import { Cards } from "../Cards";
 export function Container() {
   return (
     <StyledContainer>
-      <Cards
-       
-      />
+      <Cards />
     </StyledContainer>
   );
 }

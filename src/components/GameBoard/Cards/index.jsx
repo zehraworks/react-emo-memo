@@ -64,6 +64,7 @@ export function Cards() {
   const checkGame = () => {
     if (new Set(ref.current).size !== ref.current.length) {
       setGameOver(true);
+      setCardsNum(3);
     } else {
       setGameOver(false);
       setScore(score + 1);
