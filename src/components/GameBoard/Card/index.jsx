@@ -1,10 +1,10 @@
-import React from "react";
+import React, { useCallback } from "react";
 import styled from "styled-components";
 
 export function Card({ character, name, id, onClickCard }) {
-  function capitalizeFirstLetter(str) {
+  const capitalizeFirstLetter = useCallback((str) => {
     return str[0].toUpperCase() + str.slice(1);
-  }
+  }, []);
   return (
     <StyledCard
       onClick={() => {

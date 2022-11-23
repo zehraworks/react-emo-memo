@@ -1,11 +1,9 @@
-import React, { useContext } from "react";
-import { useState, useEffect, useRef } from "react";
-import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
+import React, { useContext, useState, useEffect, useRef } from "react";
 import "react-loading-skeleton/dist/skeleton.css";
+import { CardSkeleton } from "../CardSkeleton";
 import styled from "styled-components";
 import { GlobalContext } from "../../../context/GlobalContext";
 import { Card } from "../Card";
-import { CardSkeleton } from "../CardSkeleton";
 
 export function Cards() {
   const BASE_URL = "https://emoji-api.com/emojis";
