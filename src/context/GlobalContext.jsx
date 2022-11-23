@@ -5,8 +5,9 @@ const GlobalContext = createContext();
 const GlobalProvider = (props) => {
   const [score, setScore] = useState(0);
   const [bestScore, setBestScore] = useState(0);
+  const [cardsNum, setCardsNum] = useState(3);
   const [lvl, setLvl] = useState(1);
-  const [gameOver, setGameOver] = useState(true);
+  const [gameOver, setGameOver] = useState(false);
 
   return (
     <GlobalContext.Provider
@@ -15,6 +16,8 @@ const GlobalProvider = (props) => {
         setScore,
         bestScore,
         setBestScore,
+        cardsNum,
+        setCardsNum,
         lvl,
         setLvl,
         gameOver,

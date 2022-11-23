@@ -10,18 +10,21 @@ import { CardSkeleton } from "../CardSkeleton";
 export function Cards() {
   const BASE_URL = "https://emoji-api.com/emojis";
   const [data, setData] = useState([]);
-  const [cardsNum, setCardsNum] = useState(3);
   const [isLoading, setIsLoading] = useState(true);
   const ref = useRef([]);
 
-  const {  score,
-  setScore,
-  bestScore,
-  setBestScore,
-  lvl,
-  setLvl,
-  gameOver,
-  setGameOver,} = useContext(GlobalContext)
+  const {
+    score,
+    setScore,
+    bestScore,
+    setBestScore,
+    cardsNum,
+    setCardsNum,
+    lvl,
+    setLvl,
+    gameOver,
+    setGameOver,
+  } = useContext(GlobalContext);
 
   useEffect(() => {
     async function fetchEmojis() {
@@ -73,20 +76,9 @@ export function Cards() {
     }
   };
 
-  console.log({ score: score });
-
-  console.log({ lvl: lvl });
-  console.log(ref.current);
-  console.log(gameOver);
-
   return (
     <Wrapper>
-      {
-        /* isLoading && */
-        <SkeletonTheme baseColor="#202020" highlightColor="#444">
-          <CardSkeleton count={5} />
-        </SkeletonTheme>
-      }
+      {isLoading && <CardSkeleton />}
       {data.map((d) => (
         <Card
           key={d.codePoint}

@@ -1,26 +1,30 @@
-import React from "react";
+import React, { useContext } from "react";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import styled from "styled-components";
+import { GlobalContext } from "../../../context/GlobalContext";
 
 export function CardSkeleton() {
-  return (
-    <SkeletonTheme baseColor="#202020" highlightColor="#444">
-      <StyledCard>
-        <Skeleton
-          circle
-          height={80}
-          width={80}
-          style={{ marginTop: "25px", marginBottom: "10px" }}
-        />
-        <Skeleton
-          width={100}
-          height={15}
-          count={2}
-          style={{ marginTop: "10px" }}
-        />
-      </StyledCard>
-    </SkeletonTheme>
-  );
+  const { cardsNum } = useContext(GlobalContext);
+  return Array(cardsNum)
+    .fill(0)
+    .map((_, i) => (
+      <SkeletonTheme key={i} baseColor="#202020" highlightColor="#444">
+        <StyledCard>
+          <Skeleton
+            circle
+            height={80}
+            width={80}
+            style={{ marginTop: "25px", marginBottom: "10px" }}
+          />
+          <Skeleton
+            width={100}
+            height={15}
+            count={2}
+            style={{ marginTop: "10px" }}
+          />
+        </StyledCard>
+      </SkeletonTheme>
+    ));
 }
 
 const StyledCard = styled.div`
