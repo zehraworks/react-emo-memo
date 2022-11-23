@@ -1,7 +1,10 @@
 import React from "react";
 import { useState, useEffect, useRef } from "react";
+import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
+import "react-loading-skeleton/dist/skeleton.css";
 import styled from "styled-components";
 import { Card } from "../Card";
+import { CardSkeleton } from "../CardSkeleton";
 
 export function Cards({
   score,
@@ -16,6 +19,7 @@ export function Cards({
   const BASE_URL = "https://emoji-api.com/emojis";
   const [data, setData] = useState([]);
   const [cardsNum, setCardsNum] = useState(3);
+  const [isLoading, setIsLoading] = useState(true);
   const ref = useRef([]);
 
   useEffect(() => {
@@ -26,6 +30,7 @@ export function Cards({
       const json = await response.json();
       const result = await json.slice(0, cardsNum);
       setData(result);
+      setIsLoading(false);
     }
     fetchEmojis();
   }, [cardsNum]);
@@ -75,7 +80,13 @@ export function Cards({
 
   return (
     <Wrapper>
-      {data?.map((d) => (
+      {
+        /* isLoading && */
+        <SkeletonTheme baseColor="#202020" highlightColor="#444">
+          <CardSkeleton count={5} />
+        </SkeletonTheme>
+      }
+      {data.map((d) => (
         <Card
           key={d.codePoint}
           character={d.character}
