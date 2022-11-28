@@ -25,6 +25,9 @@ const FooterWrapper = styled.footer`
   padding: 0.5rem;
   background-color: black;
   color: white;
+  @media (max-width:600px) {
+    height: 30px;
+  }
 `;
 
 const GithubLink = styled.a`
@@ -39,5 +42,8 @@ const GithubLink = styled.a`
   }
   &:active {
     color: white;
+  }
+  @media (max-width: 600px) {
+    font-size: 1.3rem;
   }
 `;

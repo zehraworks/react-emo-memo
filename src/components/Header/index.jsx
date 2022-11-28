@@ -17,6 +17,10 @@ const HeaderStyle = styled.div`
   display: flex;
   padding: 0 5rem;
   height: 100px;
-  width: 100vw;
-  background-color: #000000;
+  background-color: black;
+  @media (max-width: 425px) {
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+}
 `;
