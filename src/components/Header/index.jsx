@@ -17,5 +17,6 @@ const HeaderStyle = styled.div`
   display: flex;
   padding: 0 5rem;
   height: 100px;
+  width: 100vw;
   background-color: #000000;
 `;
