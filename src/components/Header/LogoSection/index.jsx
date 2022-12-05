@@ -19,12 +19,6 @@ const Logo = styled.img`
   display: block;
   margin: auto 0;
   height: 60px;
-  @media (max-width: 425px) {
-    height: 35px;
-  }
-  @media (max-width: 600px) {
-    height: 40px;
-  }
 `;
 
 const GameName = styled.h1`
@@ -32,12 +26,4 @@ const GameName = styled.h1`
   margin: 35px 0 0 20px;
   font-size: 35px;
   font-weight: 700;
-  @media (max-width: 425px) {
-    margin: 15px 0 0 20px;
-  }
-  @media (max-width: 600px) {
-    font-size: 25px;
-    font-weight: 600;
-    padding: 5px 0 0 0;
-  }
 `;
