@@ -10,17 +10,13 @@ export function CardSkeleton() {
     .map((_, i) => (
       <SkeletonTheme key={i} baseColor="#202020" highlightColor="#444">
         <StyledCard>
-          <Skeleton
+          <StyledSkeleton
             circle
-            height={80}
-            width={80}
-            style={{ marginTop: "25px", marginBottom: "10px" }}
+            // style={{ marginTop: "25px", marginBottom: "10px" }}
           />
-          <Skeleton
-            width={100}
-            height={15}
+          <StyledSkeletonLine
             count={2}
-            style={{ marginTop: "10px" }}
+            // style={{ marginTop: "10px" }}
           />
         </StyledCard>
       </SkeletonTheme>
@@ -39,4 +35,32 @@ const StyledCard = styled.div`
   border-radius: 5px;
   background-color: transparent;
   box-shadow: 1px 1px 10px 0px rgba(250, 250, 250, 0.837);
+
+  @media (max-width: 600px) {
+    height: 100px;
+    width: 75px;
+    margin: 5px;
+  }
+`;
+
+const StyledSkeleton = styled(Skeleton)`
+  margin: 25px 0 10px 0;
+  height: 80px;
+  width: 80px;
+  @media (max-width: 600px) {
+    height: 40px;
+    width: 40px;
+    margin: 10px 0 5px 0;
+  }
+`;
+
+const StyledSkeletonLine = styled(Skeleton)`
+  margin-top: 10px;
+  width: 100px;
+  height: 15px;
+  @media (max-width: 600px) {
+    margin-top: 2px;
+    height: 10px;
+    width: 60px;
+  }
 `;

@@ -8,10 +8,15 @@ function App() {
   const { gameOver } = useContext(GlobalContext);
   return (
     <StyledApp>
-      {gameOver && <GameOver />}
-      <Header />
-      <Container />
-      <Footer />
+      {gameOver ? (
+        <GameOver />
+      ) : (
+        <>
+          <Header />
+          <Container />
+          <Footer />
+        </>
+      )}
     </StyledApp>
   );
 }

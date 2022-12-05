@@ -37,6 +37,12 @@ const StyledCard = styled.div`
     transition: 0.1s ease-out;
     box-shadow: 1px 1px 10px 0px #ffe83a;
   }
+
+  @media (max-width: 600px) {
+    height: 100px;
+    width: 75px;
+    margin: 5px;
+  }
 `;
 
 const CardEmo = styled.div`
@@ -47,9 +53,19 @@ const CardEmo = styled.div`
   font-size: 75px;
   height: 100px;
   width: 100px;
-  margin: 2vh;
+  margin: 10px;
+
+  @media (max-width: 600px) {
+    font-size: 40px;
+    height: 45px;
+    width: 45px;
+  }
 `;
 const CardInfo = styled.div`
   color: white;
   padding: 0 10px 10px;
+  @media (max-width: 600px) {
+    padding: 0 3px 3px;
+    font-size: 8px;
+  }
 `;

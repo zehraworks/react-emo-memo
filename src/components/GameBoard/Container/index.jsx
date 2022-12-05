@@ -18,4 +18,8 @@ const StyledContainer = styled.div`
   background-color: #0e1010;
   min-height: calc(100vh - 150px);
   width: 100%;
+
+  @media (max-width: 600px) {
+    min-height: calc(100vh - 130px);
+  }
 `;
