@@ -16,6 +16,6 @@ const StyledContainer = styled.div`
   flex-wrap: wrap;
   justify-content: center;
   background-color: #0e1010;
-  overflow-y: scroll;
-  height: 80vh;
+  min-height: calc(100vh - 150px);
+  width: 100%;
 `;

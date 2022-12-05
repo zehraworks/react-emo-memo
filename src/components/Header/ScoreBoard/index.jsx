@@ -23,6 +23,15 @@ const StyledBoard = styled.div`
   justify-content: end;
   padding: 10px 10px 0 10px;
   margin-left: 2rem;
+  @media (max-width: 425px) {
+    font-size: 8px;
+    margin-top: -20px;
+  }
+  @media (max-width: 600px) and (min-width: 425px) {
+    font-size: 12px;
+    margin: 12px 0 0 0;
+    padding: 0;
+  }
 `;
 
 const Scores = styled.div`
@@ -47,4 +56,7 @@ const Best = styled.p`
 const Level = styled.p`
   color: white;
   font-size: 24px;
+  @media (max-width: 600px) {
+    font-size: 15px;
+  }
 `;
