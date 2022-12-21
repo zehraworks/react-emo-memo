@@ -1,8 +1,8 @@
-import React, { useContext, useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import "react-loading-skeleton/dist/skeleton.css";
 import { CardSkeleton } from "../CardSkeleton";
 import styled from "styled-components";
-import { GlobalContext } from "../../../context/GlobalContext";
+import { useGlobal } from "../../../context/GlobalContext";
 import { Card } from "../Card";
 
 export function Cards() {
@@ -11,18 +11,7 @@ export function Cards() {
   const [isLoading, setIsLoading] = useState(true);
   const ref = useRef([]);
 
-  const {
-    score,
-    setScore,
-    bestScore,
-    setBestScore,
-    cardsNum,
-    setCardsNum,
-    lvl,
-    setLvl,
-    gameOver,
-    setGameOver,
-  } = useContext(GlobalContext);
+  const { score, bestScore, cardsNum, lvl, gameOver, setValue } = useGlobal();
 
   useEffect(() => {
     async function fetchEmojis() {
@@ -39,12 +28,12 @@ export function Cards() {
 
   useEffect(() => {
     ref.current = [];
-    setCardsNum(2 * lvl + 1);
+    setValue({ cardsNum: 2 * lvl + 1 });
   }, [lvl]);
 
   useEffect(() => {
     if (score > bestScore) {
-      setBestScore(score);
+      setValue({ bestScore: bestScore });
     }
   }, [score]);
 
@@ -56,22 +45,17 @@ export function Cards() {
     ref.current = [id, ...ref.current];
     setData(shuffle(data));
     checkGame();
-    nextLvl();
   };
 
   const checkGame = () => {
     if (new Set(ref.current).size !== ref.current.length) {
-      setGameOver(true);
-      setCardsNum(3);
+      setValue({ gameOver: true, cardsNum: 3 });
     } else {
-      setGameOver(false);
-      setScore(score + 1);
-    }
-  };
-
-  const nextLvl = () => {
-    if (cardsNum === ref.current.length && gameOver === false) {
-      setLvl(lvl + 1);
+      setValue({
+        gameOver: false,
+        score: score + 1,
+        lvl: cardsNum === ref.current.length ? lvl + 1 : lvl,
+      });
     }
   };
 

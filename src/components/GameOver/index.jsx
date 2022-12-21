@@ -1,13 +1,12 @@
-import React, { useContext } from "react";
+import React from "react";
 import styled from "styled-components";
-import { GlobalContext } from "../../context/GlobalContext";
+import { useGlobal } from "../../context/GlobalContext";
 import img from "./skull.png";
 
 export function GameOver() {
-  const { score, setScore, setLvl, setGameOver } = useContext(GlobalContext);
+  const { score, setValue } = useGlobal();
   const startNewGame = () => {
-    setScore(0);
-    setLvl(1);
+    setValue({ score: 0, lvl: 1, gameOver:false });
   };
   return (
     <StyledGameOver>
@@ -16,7 +15,6 @@ export function GameOver() {
       <Score>Your score: {score}</Score>
       <Btn
         onClick={() => {
-          setGameOver(false);
           startNewGame();
         }}
       >

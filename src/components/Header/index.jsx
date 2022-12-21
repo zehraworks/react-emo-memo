@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-
 import { LogoSection } from "./LogoSection";
 import { ScoreBoard } from "./ScoreBoard";
 
@@ -22,5 +21,5 @@ const HeaderStyle = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: start;
-}
+  }
 `;

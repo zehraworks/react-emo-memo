@@ -1,9 +1,9 @@
-import React, { useContext } from "react";
+import React from "react";
 import styled from "styled-components";
-import { GlobalContext } from "../../../context/GlobalContext";
+import { useGlobal } from "../../../context/GlobalContext";
 
 export function ScoreBoard() {
-  const { score, bestScore, lvl } = useContext(GlobalContext);
+  const { score, bestScore, lvl } = useGlobal();
   return (
     <StyledBoard>
       <Level> Level:{lvl}</Level>

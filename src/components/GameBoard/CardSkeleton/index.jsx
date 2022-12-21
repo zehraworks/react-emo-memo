@@ -1,10 +1,10 @@
-import React, { useContext } from "react";
+import React from "react";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import styled from "styled-components";
-import { GlobalContext } from "../../../context/GlobalContext";
+import { useGlobal } from "../../../context/GlobalContext";
 
 export function CardSkeleton() {
-  const { cardsNum } = useContext(GlobalContext);
+  const { cardsNum } = useGlobal();
   return Array(cardsNum)
     .fill(0)
     .map((_, i) => (

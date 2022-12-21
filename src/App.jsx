@@ -1,11 +1,10 @@
-import { useContext, useEffect, useState } from "react";
+import React from "react";
 import styled from "styled-components";
-import "./App.css";
 import { Header, Container, Footer, GameOver } from "./components";
-import { GlobalContext } from "./context/GlobalContext";
+import { useGlobal } from "./context/GlobalContext";
 
 function App() {
-  const { gameOver } = useContext(GlobalContext);
+  const { gameOver } = useGlobal();
   return (
     <StyledApp>
       {gameOver ? (

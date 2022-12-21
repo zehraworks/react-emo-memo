@@ -1,32 +1,32 @@
+import { useContext } from "react";
 import { createContext, useState } from "react";
 
 const GlobalContext = createContext();
 
-const GlobalProvider = (props) => {
-  const [score, setScore] = useState(0);
-  const [bestScore, setBestScore] = useState(0);
-  const [cardsNum, setCardsNum] = useState(3);
-  const [lvl, setLvl] = useState(1);
-  const [gameOver, setGameOver] = useState(false);
+const GlobalProvider = ({ children }) => {
+  const [value, setValue] = useState({
+    score: 0,
+    bestScore: 0,
+    cardsNum: 3,
+    lvl: 1,
+    gameOver: false,
+  });
 
   return (
     <GlobalContext.Provider
       value={{
-        score,
-        setScore,
-        bestScore,
-        setBestScore,
-        cardsNum,
-        setCardsNum,
-        lvl,
-        setLvl,
-        gameOver,
-        setGameOver,
+        ...value,
+        setValue: (data) => {
+          setValue({ ...value, ...data });
+        },
       }}
     >
-      {props.children}
+      {children}
     </GlobalContext.Provider>
   );
 };
 
-export { GlobalContext, GlobalProvider };
+const useGlobal = () => {
+  return useContext(GlobalContext);
+};
+export { useGlobal, GlobalProvider };
