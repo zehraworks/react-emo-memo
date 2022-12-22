@@ -31,12 +31,6 @@ export function Cards() {
     setValue({ cardsNum: 2 * lvl + 1 });
   }, [lvl]);
 
-  useEffect(() => {
-    if (score > bestScore) {
-      setValue({ bestScore: bestScore });
-    }
-  }, [score]);
-
   const shuffle = (_data) => {
     return [..._data].sort(() => 0.5 - Math.random());
   };
@@ -53,6 +47,7 @@ export function Cards() {
     } else {
       setValue({
         gameOver: false,
+        bestScore: score + 1 > bestScore ? score + 1 : bestScore,
         score: score + 1,
         lvl: cardsNum === ref.current.length ? lvl + 1 : lvl,
       });
