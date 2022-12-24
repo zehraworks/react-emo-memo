@@ -1,7 +1,6 @@
 # Emo Memo
 
-### 📜 Memory card game built with React and Styled Components
-
+### Memory card game built with Emoji API
 🔗 Live Demo: [react-emo-memo](https://react-emo-memo.vercel.app/)
 
 ![emo-memo](https://user-images.githubusercontent.com/95143820/203648438-92ab7e5a-cf91-4b34-8dbb-2a9eb9861290.gif)
