@@ -1,7 +1,6 @@
 # Emo Memo
 
 ### Memory card game built with Emoji API
-⚠️	Public API is currently down, data retrieval may not work. I will be maintaining to fix the issue.
 
 🔗 Live Demo: [react-emo-memo](https://react-emo-memo.vercel.app/)
 
